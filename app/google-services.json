@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "174536658853",
+    "firebase_url": "https://medonline-es.firebaseio.com",
+    "project_id": "medonline-es",
+    "storage_bucket": "medonline-es.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:174536658853:android:0bf1322e5ef7e27d",
+        "android_client_info": {
+          "package_name": "com.brenohff.medonline"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "174536658853-s91qv8pqh824pu02c4s6lkg9vnh654fp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.brenohff.medonline",
+            "certificate_hash": "a8fa239178617ccd2f1ea1e3b5cb1da1aee65adb"
+          }
+        },
+        {
+          "client_id": "174536658853-3on2bqbppg82grnbi0c9b37l2g4fqd9h.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "174536658853-3on2bqbppg82grnbi0c9b37l2g4fqd9h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzC-VqJ4K2fDyQSEVCvRBS0he0DaXJg14"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "174536658853-3on2bqbppg82grnbi0c9b37l2g4fqd9h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

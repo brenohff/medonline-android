@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.RegisterUserFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="@dimen/margin_menu_login"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/et_register_cep"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/drawableshape"
+            android:drawableEnd="@drawable/ic_email"
+            android:drawableTint="@color/buttons_light_blue"
+            android:hint="CEP"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/et_register_logradouro"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/drawableshape"
+            android:drawableEnd="@drawable/ic_action_key"
+            android:drawableTint="@color/buttons_light_blue"
+            android:hint="Logradouro"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/et_register_complemento"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/drawableshape"
+            android:drawableEnd="@drawable/ic_action_key"
+            android:drawableTint="@color/buttons_light_blue"
+            android:hint="Complemento"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/bt_register"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/buttons_light_blue"
+            android:text="Finalizar"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/bt_voltar3"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/buttons_light_blue"
+            android:drawablePadding="-25dp"
+            android:drawableStart="@drawable/ic_arrow_left"
+            android:text="Voltar"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+</RelativeLayout>

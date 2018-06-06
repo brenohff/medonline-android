@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">medOnline</string>
+    <string name="title_home">Perfil</string>
+    <string name="title_dashboard">Médicos</string>
+    <string name="title_notifications">Consultas</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
