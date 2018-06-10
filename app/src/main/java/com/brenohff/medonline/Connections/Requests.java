@@ -1,6 +1,10 @@
 package com.brenohff.medonline.Connections;
 
+import com.brenohff.medonline.Domain.Especialidade;
+import com.brenohff.medonline.Domain.Medico;
 import com.brenohff.medonline.Domain.Paciente;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -27,4 +31,31 @@ public interface Requests {
     Call<Paciente> buscaPacientePeloEmail(@Query("email") String email);
 
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///// ESPECIALIDADE
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    @GET("especialidade/buscaTodos")
+    Call<List<Especialidade>> buscaTodos();
+
+    @GET("especialidade/buscaEspecialidadePorID")
+    Call<Especialidade> buscaEspecialidadePorID(@Query("idEspecialidade") Long idEspecialidade);
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///// MEDICOS
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    @POST("medico/salvar")
+    Call<Void> salvarMedico(@Body Medico medico);
+
+    @GET("medico/buscaMedicoPeloID")
+    Call<Medico> buscaMedicoPeloID(@Query("idMedico") Long idMedico);
+
+    @GET("medico/buscaMedicoPeloEmail")
+    Call<Medico> buscaMedicoPeloEmail(@Query("email") String email);
+
+    @GET("medico/buscaTodos")
+    Call<List<Medico>> buscaTodosMedicos();
+
+    @GET("medico/buscaMedicoPelaEspecialidade")
+    Call<List<Medico>> buscaMedicoPelaEspecialidade(@Query("idEspecialidade") Long idEspecialidade);
 }

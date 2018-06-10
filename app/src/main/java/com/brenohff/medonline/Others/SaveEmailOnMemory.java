@@ -12,12 +12,14 @@ public class SaveEmailOnMemory {
     public static final String PREFS_NAME = "LoadedBefore";
 
     private String email;
+    private String tipo_usuario;
 
-    public SaveEmailOnMemory(String email){
+    public SaveEmailOnMemory(String email, String tipo_usuario) {
         this.email = email;
+        this.tipo_usuario = tipo_usuario;
     }
 
-    //GET STATUS
+    //region GETTERS AND SETTERS
 
     public String getEmail() {
         return email;
@@ -27,12 +29,21 @@ public class SaveEmailOnMemory {
         this.email = email;
     }
 
+    public String getTipo_usuario() {
+        return tipo_usuario;
+    }
+
+    public void setTipo_usuario(String tipo_usuario) {
+        this.tipo_usuario = tipo_usuario;
+    }
+    //endregion
 
     public void saveEmail(Context context) {
         SharedPreferences settings = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = settings.edit();
 
         editor.putString("email", email);
+        editor.putString("tipo_usuario", tipo_usuario);
 
         editor.apply();
     }
@@ -40,12 +51,13 @@ public class SaveEmailOnMemory {
     public static SaveEmailOnMemory loadEmail(Context context) {
 
         SharedPreferences userPrefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-        String status = userPrefs.getString("email", null);
+        String e = userPrefs.getString("email", null);
+        String tp_user = userPrefs.getString("tipo_usuario", null);
 
-        if (status == null){
+        if (e == null || tp_user == null) {
             return null;
         } else {
-            return new SaveEmailOnMemory(status);
+            return new SaveEmailOnMemory(e, tp_user);
         }
     }
 
@@ -53,6 +65,7 @@ public class SaveEmailOnMemory {
         SharedPreferences userPrefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = userPrefs.edit();
         editor.remove("email");
+        editor.remove("tipo_usuario");
         editor.apply();
     }
 

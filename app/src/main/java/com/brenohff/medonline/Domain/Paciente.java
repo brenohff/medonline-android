@@ -15,6 +15,7 @@ public class Paciente implements Serializable {
     private Date dtNascimento;
     private String nome;
     private String observacao;
+    private String senha;
     private TipoSexo sexo;
 
 
@@ -82,5 +83,21 @@ public class Paciente implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Date getDtNascimento() {
+        return dtNascimento;
+    }
+
+    public void setDtNascimento(Date dtNascimento) {
+        this.dtNascimento = dtNascimento;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 }

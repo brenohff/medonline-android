@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.MedicosFragment">
 
+    <com.jaredrummler.materialspinner.MaterialSpinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_horizontal_margin" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/medico_recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_below="@id/spinner" />
+
+    <TextView
+        android:id="@+id/medico_noMedico"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/spinner"
+        android:gravity="center"
+        android:text="NÃO HÁ NENHUM MÉDICO COM ESTA ESPECIALIDADE."
+        android:visibility="gone" />
 
 
-</FrameLayout>
+</RelativeLayout>

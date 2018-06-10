@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.brenohff.medonline.Connections.Connection;
 import com.brenohff.medonline.Connections.Requests;
+import com.brenohff.medonline.Domain.Medico;
 import com.brenohff.medonline.Domain.Paciente;
 import com.brenohff.medonline.Fragments.LoginFragment;
 import com.brenohff.medonline.Fragments.MedicosFragment;
@@ -67,25 +68,11 @@ public class MainActivity extends AppCompatActivity {
                     } else if (SaveEmailOnMemory.loadEmail(MainActivity.this) != null && MainData.getInstance().getPaciente() != null) {
                         changeFragment(new ProfileFragment(), "ProfileFragment");
                     } else {
-                        Requests requests = Connection.createService(Requests.class);
-                        Call<Paciente> call = requests.buscaPacientePeloEmail(SaveEmailOnMemory.loadEmail(MainActivity.this).getEmail());
-                        call.enqueue(new Callback<Paciente>() {
-                            @Override
-                            public void onResponse(Call<Paciente> call, Response<Paciente> response) {
-                                if (response.isSuccessful()) {
-                                    MainData.getInstance().setPaciente(response.body());
-                                    changeFragment(new ProfileFragment(), "ProfileFragment");
-                                } else {
-                                    changeFragment(new LoginFragment(), "LoginFragment");
-                                    SaveEmailOnMemory.removeEmail(MainActivity.this);
-                                }
-                            }
-
-                            @Override
-                            public void onFailure(Call<Paciente> call, Throwable t) {
-                                changeFragment(new LoginFragment(), "LoginFragment");
-                            }
-                        });
+                        if (SaveEmailOnMemory.loadEmail(MainActivity.this).getTipo_usuario().equals("paciente")) {
+                            carregaPaciente();
+                        } else {
+                            carregaMedico();
+                        }
                     }
                     return true;
                 case R.id.navigation_dashboard:
@@ -183,5 +170,49 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //endregion
+
+    private void carregaPaciente() {
+        Requests requests = Connection.createService(Requests.class);
+        Call<Paciente> call = requests.buscaPacientePeloEmail(SaveEmailOnMemory.loadEmail(MainActivity.this).getEmail());
+        call.enqueue(new Callback<Paciente>() {
+            @Override
+            public void onResponse(Call<Paciente> call, Response<Paciente> response) {
+                if (response.isSuccessful()) {
+                    MainData.getInstance().setPaciente(response.body());
+                    changeFragment(new ProfileFragment(), "ProfileFragment");
+                } else {
+                    changeFragment(new LoginFragment(), "LoginFragment");
+                    SaveEmailOnMemory.removeEmail(MainActivity.this);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Paciente> call, Throwable t) {
+                changeFragment(new LoginFragment(), "LoginFragment");
+            }
+        });
+    }
+
+    private void carregaMedico() {
+        Requests requests = Connection.createService(Requests.class);
+        Call<Medico> call = requests.buscaMedicoPeloEmail(SaveEmailOnMemory.loadEmail(MainActivity.this).getEmail());
+        call.enqueue(new Callback<Medico>() {
+            @Override
+            public void onResponse(Call<Medico> call, Response<Medico> response) {
+                if (response.isSuccessful()) {
+                    MainData.getInstance().setMedico(response.body());
+                    changeFragment(new ProfileFragment(), "ProfileFragment");
+                } else {
+                    changeFragment(new LoginFragment(), "LoginFragment");
+                    SaveEmailOnMemory.removeEmail(MainActivity.this);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Medico> call, Throwable t) {
+                changeFragment(new LoginFragment(), "LoginFragment");
+            }
+        });
+    }
 
 }

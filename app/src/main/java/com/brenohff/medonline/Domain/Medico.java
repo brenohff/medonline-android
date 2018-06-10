@@ -1,6 +1,7 @@
 package com.brenohff.medonline.Domain;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Set;
 
 public class Medico implements Serializable {
@@ -11,7 +12,9 @@ public class Medico implements Serializable {
 
     private String nome;
     private String crm;
-    private String especialidade;
+    private Especialidade especialidade;
+    private Date dtNascimento;
+    private String email;
 
     private Endereco endereco;
 
@@ -35,14 +38,6 @@ public class Medico implements Serializable {
 
     public void setCrm(String crm) {
         this.crm = crm;
-    }
-
-    public String getEspecialidade() {
-        return especialidade;
-    }
-
-    public void setEspecialidade(String especialidade) {
-        this.especialidade = especialidade;
     }
 
     public Endereco getEndereco() {
@@ -75,6 +70,30 @@ public class Medico implements Serializable {
 
     public void setIdMedico(Long idMedico) {
         this.idMedico = idMedico;
+    }
+
+    public Especialidade getEspecialidade() {
+        return especialidade;
+    }
+
+    public void setEspecialidade(Especialidade especialidade) {
+        this.especialidade = especialidade;
+    }
+
+    public Date getDtNascimento() {
+        return dtNascimento;
+    }
+
+    public void setDtNascimento(Date dtNascimento) {
+        this.dtNascimento = dtNascimento;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     //endregion

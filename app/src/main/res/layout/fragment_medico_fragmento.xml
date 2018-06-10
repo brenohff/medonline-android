@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/activity_horizontal_margin"
+    tools:context=".Fragments.MedicoFragmento">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/medico_imagem"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:elevation="5dp"
+        android:src="@drawable/dr_house2" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/medico_imagem"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/medico_fragment_nome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/medico_fragment_especialidade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/bt_iniciar_consulta"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="75dp"
+            android:background="@color/buttons_light_blue"
+            android:text="Iniciar Consulta"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+</RelativeLayout>

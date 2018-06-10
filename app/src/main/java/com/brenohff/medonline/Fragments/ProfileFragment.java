@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.brenohff.medonline.Activities.MainActivity;
+import com.brenohff.medonline.Domain.Medico;
 import com.brenohff.medonline.Domain.Paciente;
 import com.brenohff.medonline.Domain.TipoSexo;
 import com.brenohff.medonline.FirebaseConfig.FirebaseConfig;
@@ -27,6 +28,7 @@ public class ProfileFragment extends Fragment {
     private Context context;
     private FirebaseAuth mAuth;
     private Paciente paciente;
+    private Medico medico;
 
     private Button bt_logout, bt_minhas_consultas, bt_meus_exames;
     private TextView tv_profile_sexo, tv_profile_nascimento, tv_profile_nome;
@@ -35,7 +37,11 @@ public class ProfileFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        paciente = MainData.getInstance().getPaciente();
+        if (MainData.getInstance().getPaciente() != null) {
+            paciente = MainData.getInstance().getPaciente();
+        } else {
+            medico = MainData.getInstance().getMedico();
+        }
 
     }
 
@@ -64,14 +70,25 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        tv_profile_nome.setText(paciente.getNome());
-        if (paciente.getSexo() == TipoSexo.MASC) {
-            tv_profile_sexo.setText("Masculino");
+        if (paciente != null) {
+            tv_profile_nome.setText(paciente.getNome());
+            if (paciente.getSexo() == TipoSexo.MASC) {
+                tv_profile_sexo.setText("Masculino");
+            } else {
+                tv_profile_sexo.setText("Feminino");
+            }
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            tv_profile_nascimento.setText(simpleDateFormat.format(paciente.getIdade()));
         } else {
-            tv_profile_sexo.setText("Feminino");
+            tv_profile_nome.setText(medico.getNome());
+            if (medico.getSexo() == TipoSexo.MASC) {
+                tv_profile_sexo.setText("Masculino");
+            } else {
+                tv_profile_sexo.setText("Feminino");
+            }
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            tv_profile_nascimento.setText(simpleDateFormat.format(medico.getDtNascimento()));
         }
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        tv_profile_nascimento.setText(simpleDateFormat.format(paciente.getIdade()));
     }
 
 }

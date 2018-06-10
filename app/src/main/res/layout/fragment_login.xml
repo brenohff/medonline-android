@@ -39,8 +39,44 @@
             android:drawableEnd="@drawable/ic_action_key"
             android:drawableTint="@color/buttons_light_blue"
             android:hint="Senha"
+            android:inputType="textPassword"
             android:textColor="@color/black"
             android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:gravity="center_vertical"
+                android:text="Paciente"
+                android:textColor="@color/buttons_light_blue"
+                android:textSize="18sp" />
+
+            <com.rey.material.widget.Switch
+                android:id="@+id/switch_login_tp_usuario"
+                style="@style/Switch"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:checked="false"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:gravity="center_vertical"
+                android:text="Médico"
+                android:textColor="@color/buttons_light_blue"
+                android:textSize="18sp" />
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/bt_login"
@@ -75,7 +111,7 @@
             android:layout_height="25dp"
             android:layout_marginLeft="5dp"
             android:text="Registre-se"
-            android:textColor="#F75729"
+            android:textColor="@color/orange_logo"
             android:textSize="16sp"
             android:textStyle="bold" />
 

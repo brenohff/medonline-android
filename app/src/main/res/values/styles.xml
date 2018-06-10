@@ -14,7 +14,7 @@
         <item name="sw_trackCap">round</item>
         <item name="sw_thumbRadius">10dp</item>
         <item name="sw_thumbElevation">2dp</item>
-        <item name="sw_trackColor">@color/buttons_light_blue</item>
+        <item name="sw_trackColor">@color/orange_logo</item>
         <item name="sw_thumbColor">@color/white</item>
         <item name="sw_animDuration">200</item>
         <item name="sw_interpolator">@android:anim/decelerate_interpolator</item>
