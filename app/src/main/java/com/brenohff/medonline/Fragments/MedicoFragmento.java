@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.brenohff.medonline.Activities.MainActivity;
 import com.brenohff.medonline.Domain.Medico;
 import com.brenohff.medonline.Memory.MainData;
 import com.brenohff.medonline.R;
@@ -58,10 +59,15 @@ public class MedicoFragmento extends Fragment {
             public void onClick(View view) {
                 if (MainData.getInstance().getPaciente() == null) {
                     Toast.makeText(context, "Faça login antes de iniciar uma consulta.", Toast.LENGTH_SHORT).show();
-                }
-
-                if (MainData.getInstance().getMedico() != null) {
+                } else if (MainData.getInstance().getMedico() != null) {
                     Toast.makeText(context, "Não é possível realizar consulta com conta de médico..", Toast.LENGTH_SHORT).show();
+                } else {
+                    ConsultaFragment consultaFragment = new ConsultaFragment();
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("medico", medico);
+                    bundle.putSerializable("paciente", MainData.getInstance().getPaciente());
+                    consultaFragment.setArguments(bundle);
+                    ((MainActivity) context).pushFragmentWithStack(consultaFragment, "ConsultaFragment");
                 }
             }
         });

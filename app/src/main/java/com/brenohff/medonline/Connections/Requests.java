@@ -1,7 +1,9 @@
 package com.brenohff.medonline.Connections;
 
+import com.brenohff.medonline.Domain.Consulta;
 import com.brenohff.medonline.Domain.Especialidade;
 import com.brenohff.medonline.Domain.Medico;
+import com.brenohff.medonline.Domain.Mensagem;
 import com.brenohff.medonline.Domain.Paciente;
 
 import java.util.List;
@@ -58,4 +60,18 @@ public interface Requests {
 
     @GET("medico/buscaMedicoPelaEspecialidade")
     Call<List<Medico>> buscaMedicoPelaEspecialidade(@Query("idEspecialidade") Long idEspecialidade);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///// CONSULTAS
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    @POST("consulta/salvar")
+    Call<Consulta> salvarConsulta(@Body Consulta consulta);
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///// MENSAGENS
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    @POST("mensagem/salvar")
+    Call<Void> salvarMesagem(@Body Mensagem mensagem);
+
 }

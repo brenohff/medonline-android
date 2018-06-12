@@ -47,12 +47,20 @@ public class ProfileFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_profile, container, false);
-        context = view.getContext();
+        if (paciente != null) {
+            View view = inflater.inflate(R.layout.fragment_profile_paciente, container, false);
+            context = view.getContext();
 
-        castFields(view);
+            castFields(view);
 
-        return view;
+            return view;
+        } else {
+            View view = inflater.inflate(R.layout.fragment_profile_medico, container, false);
+            context = view.getContext();
+
+            castMedicoFields(view);
+            return view;
+        }
     }
 
     private void castFields(View view) {
@@ -70,25 +78,40 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        if (paciente != null) {
-            tv_profile_nome.setText(paciente.getNome());
-            if (paciente.getSexo() == TipoSexo.MASC) {
-                tv_profile_sexo.setText("Masculino");
-            } else {
-                tv_profile_sexo.setText("Feminino");
-            }
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            tv_profile_nascimento.setText(simpleDateFormat.format(paciente.getIdade()));
+        tv_profile_nome.setText(paciente.getNome());
+        if (paciente.getSexo() == TipoSexo.MASC) {
+            tv_profile_sexo.setText("Masculino");
         } else {
-            tv_profile_nome.setText(medico.getNome());
-            if (medico.getSexo() == TipoSexo.MASC) {
-                tv_profile_sexo.setText("Masculino");
-            } else {
-                tv_profile_sexo.setText("Feminino");
-            }
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            tv_profile_nascimento.setText(simpleDateFormat.format(medico.getDtNascimento()));
+            tv_profile_sexo.setText("Feminino");
         }
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        tv_profile_nascimento.setText(simpleDateFormat.format(paciente.getIdade()));
+    }
+
+    private void castMedicoFields(View view) {
+
+        tv_profile_nome = (TextView) view.findViewById(R.id.tv_profile_nome);
+        tv_profile_sexo = (TextView) view.findViewById(R.id.tv_profile_sexo);
+        tv_profile_nascimento = (TextView) view.findViewById(R.id.tv_profile_nascimento);
+        bt_logout = (Button) view.findViewById(R.id.bt_logout);
+        bt_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mAuth = FirebaseConfig.getmAuth();
+                mAuth.signOut();
+                SaveEmailOnMemory.removeEmail(context);
+                ((MainActivity) context).setFragment(2);
+            }
+        });
+
+        tv_profile_nome.setText(medico.getNome());
+        if (medico.getSexo() == TipoSexo.MASC) {
+            tv_profile_sexo.setText("Masculino");
+        } else {
+            tv_profile_sexo.setText("Feminino");
+        }
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        tv_profile_nascimento.setText(simpleDateFormat.format(medico.getDtNascimento()));
     }
 
 }

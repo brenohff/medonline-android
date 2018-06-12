@@ -1,100 +1,53 @@
 package com.brenohff.medonline.Domain;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.Set;
 
-public class Medico implements Serializable {
+public class Medico extends Usuario implements Serializable {
 
-    private static final long serialVersionUID = -5888636092094648442L;
+	private static final long serialVersionUID = -5888636092094648442L;
 
-    private Long idMedico;
+	private Long idMedico;
+	private String crm;
+	private Especialidade especialidade;
+	private Set<Consulta> consulta;
+	private Avaliacao avaliacao;
 
-    private String nome;
-    private String crm;
-    private Especialidade especialidade;
-    private Date dtNascimento;
-    private String email;
+	// GETTERS AND SETTERS
 
-    private Endereco endereco;
+	public String getCrm() {
+		return crm;
+	}
 
-    private Set<Consulta> consulta;
+	public Set<Consulta> getConsulta() {
+		return consulta;
+	}
 
-    private TipoSexo sexo;
+	public void setConsulta(Set<Consulta> consulta) {
+		this.consulta = consulta;
+	}
 
+	public Long getIdMedico() {
+		return idMedico;
+	}
 
-    //region GETTERS AND SETTERS
-    public String getNome() {
-        return nome;
-    }
+	public void setIdMedico(Long idMedico) {
+		this.idMedico = idMedico;
+	}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public Especialidade getEspecialidade() {
+		return especialidade;
+	}
 
-    public String getCrm() {
-        return crm;
-    }
+	public void setEspecialidade(Especialidade especialidade) {
+		this.especialidade = especialidade;
+	}
 
-    public void setCrm(String crm) {
-        this.crm = crm;
-    }
+	public Avaliacao getAvaliacao() {
+		return avaliacao;
+	}
 
-    public Endereco getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
-    }
-
-    public TipoSexo getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(TipoSexo sexo) {
-        this.sexo = sexo;
-    }
-
-    public Set<Consulta> getConsulta() {
-        return consulta;
-    }
-
-    public void setConsulta(Set<Consulta> consulta) {
-        this.consulta = consulta;
-    }
-
-    public Long getIdMedico() {
-        return idMedico;
-    }
-
-    public void setIdMedico(Long idMedico) {
-        this.idMedico = idMedico;
-    }
-
-    public Especialidade getEspecialidade() {
-        return especialidade;
-    }
-
-    public void setEspecialidade(Especialidade especialidade) {
-        this.especialidade = especialidade;
-    }
-
-    public Date getDtNascimento() {
-        return dtNascimento;
-    }
-
-    public void setDtNascimento(Date dtNascimento) {
-        this.dtNascimento = dtNascimento;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    //endregion
+	public void setAvaliacao(Avaliacao avaliacao) {
+		this.avaliacao = avaliacao;
+	}
 }

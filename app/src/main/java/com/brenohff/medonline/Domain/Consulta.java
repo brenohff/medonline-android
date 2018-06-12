@@ -7,20 +7,13 @@ import java.util.Set;
 
 public class Consulta implements Serializable{
 
-	private static final long serialVersionUID = -6861776569424067262L;
-
 	private Long idConsulta;
 	private Date dtConsulta;
-
 	private Medico medico;
-
 	private Paciente paciente;
-
-	private Set<Exame> exame;
-
-	private Set<Diagnostico> diagnostico;
-	
 	private String assunto;
+	private Set<Exame> exame;
+	private Set<Diagnostico> diagnostico;
 
 	
 	//GETTERS AND SETTERS
