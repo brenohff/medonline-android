@@ -61,12 +61,13 @@
             android:textColor="@color/white" />
 
         <Button
+            android:id="@+id/bt_profile_editar_perfil"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_centerInParent="true"
             android:layout_marginTop="10dp"
             android:background="@color/buttons_light_blue"
-            android:text="Meus exames"
+            android:text="Alterar perfil"
             android:textColor="@color/white" />
 
         <Button

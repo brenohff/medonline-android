@@ -30,7 +30,7 @@ public class ProfileFragment extends Fragment {
     private Paciente paciente;
     private Medico medico;
 
-    private Button bt_logout, bt_profile_minhas_consultas, bt_meus_exames;
+    private Button bt_logout, bt_profile_minhas_consultas, bt_profile_editar_perfil;
     private TextView tv_profile_sexo, tv_profile_nascimento, tv_profile_nome;
 
     @Override
@@ -68,7 +68,9 @@ public class ProfileFragment extends Fragment {
         tv_profile_sexo = (TextView) view.findViewById(R.id.tv_profile_sexo);
         tv_profile_nascimento = (TextView) view.findViewById(R.id.tv_profile_nascimento);
         bt_profile_minhas_consultas = (Button) view.findViewById(R.id.bt_profile_minhas_consultas);
+        bt_profile_editar_perfil = (Button) view.findViewById(R.id.bt_profile_editar_perfil);
         bt_logout = (Button) view.findViewById(R.id.bt_logout);
+
         bt_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,6 +85,13 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 ((MainActivity) context).pushFragmentWithStack(new MinhasConsultasFragment(), "MinhasConsultasFragment");
+            }
+        });
+
+        bt_profile_editar_perfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MainActivity) context).pushFragmentWithStack(new EditarPerfilFragment(), "EditarPerfilFragment");
             }
         });
 

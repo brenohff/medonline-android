@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/activity_horizontal_margin"
+    android:orientation="vertical"
+    tools:context=".Fragments.EditarPerfilFragment">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/editar_perfil_imagem"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_gravity="center_horizontal"
+        android:elevation="5dp"
+        android:src="@drawable/dr_house2" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:text="Nome"
+        android:textColor="@color/buttons_light_blue"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/editar_perfil_nome"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/drawableshape"
+        android:gravity="center_vertical" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:text="Data Nascimento"
+        android:textColor="@color/buttons_light_blue"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/editar_perfil_dt_nascimento"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/drawableshape"
+        android:gravity="center_vertical" />
+
+    <Button
+        android:id="@+id/editar_perfil_salvar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:background="@color/buttons_light_blue"
+        android:text="salvar"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+</LinearLayout>
