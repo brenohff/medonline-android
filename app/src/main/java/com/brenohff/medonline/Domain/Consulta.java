@@ -2,91 +2,110 @@ package com.brenohff.medonline.Domain;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 
-public class Consulta implements Serializable{
+public class Consulta implements Serializable {
+    private static final long serialVersionUID = 1L;
 
-	private Long idConsulta;
-	private Date dtConsulta;
-	private Medico medico;
-	private Paciente paciente;
-	private String assunto;
-	private Set<Exame> exame;
-	private Set<Diagnostico> diagnostico;
+    private Long idConsulta;
+    private Date dtConsulta;
+    private String assunto;
+    private Medico medico;
+    private Paciente paciente;
+    private Set<Exame> exame;
+    private Set<Diagnostico> diagnostico;
+    private List<Mensagem> mensagens;
+    private Boolean isFinalizada;
 
-	
-	//GETTERS AND SETTERS
-	public Long getId() {
-		return idConsulta;
-	}
 
-	public void setId(Long idConsulta) {
-		this.idConsulta = idConsulta;
-	}
+    //GETTERS AND SETTERS
+    public Long getId() {
+        return idConsulta;
+    }
 
-	public Date getDt_consulta() {
-		return dtConsulta;
-	}
+    public void setId(Long idConsulta) {
+        this.idConsulta = idConsulta;
+    }
 
-	public void setDt_consulta(Date dtConsulta) {
-		this.dtConsulta = dtConsulta;
-	}
+    public Date getDt_consulta() {
+        return dtConsulta;
+    }
 
-	public String getAssunto() {
-		return assunto;
-	}
+    public void setDt_consulta(Date dtConsulta) {
+        this.dtConsulta = dtConsulta;
+    }
 
-	public void setAssunto(String assunto) {
-		this.assunto = assunto;
-	}
+    public String getAssunto() {
+        return assunto;
+    }
 
-	public Medico getMedico() {
-		return medico;
-	}
+    public void setAssunto(String assunto) {
+        this.assunto = assunto;
+    }
 
-	public void setMedico(Medico medico) {
-		this.medico = medico;
-	}
+    public Medico getMedico() {
+        return medico;
+    }
 
-	public Paciente getPaciente() {
-		return paciente;
-	}
+    public void setMedico(Medico medico) {
+        this.medico = medico;
+    }
 
-	public void setPaciente(Paciente paciente) {
-		this.paciente = paciente;
-	}
+    public Paciente getPaciente() {
+        return paciente;
+    }
 
-	public Set<Exame> getExame() {
-		return exame;
-	}
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
+    }
 
-	public void setExame(Set<Exame> exame) {
-		this.exame = exame;
-	}
+    public Set<Exame> getExame() {
+        return exame;
+    }
 
-	public Long getIdConsulta() {
-		return idConsulta;
-	}
+    public void setExame(Set<Exame> exame) {
+        this.exame = exame;
+    }
 
-	public void setIdConsulta(Long idConsulta) {
-		this.idConsulta = idConsulta;
-	}
+    public Long getIdConsulta() {
+        return idConsulta;
+    }
 
-	public Date getDtConsulta() {
-		return dtConsulta;
-	}
+    public void setIdConsulta(Long idConsulta) {
+        this.idConsulta = idConsulta;
+    }
 
-	public void setDtConsulta(Date dtConsulta) {
-		this.dtConsulta = dtConsulta;
-	}
+    public Date getDtConsulta() {
+        return dtConsulta;
+    }
 
-	public Set<Diagnostico> getDiagnostico() {
-		return diagnostico;
-	}
+    public void setDtConsulta(Date dtConsulta) {
+        this.dtConsulta = dtConsulta;
+    }
 
-	public void setDiagnostico(Set<Diagnostico> diagnostico) {
-		this.diagnostico = diagnostico;
-	}
-	
+    public Set<Diagnostico> getDiagnostico() {
+        return diagnostico;
+    }
+
+    public void setDiagnostico(Set<Diagnostico> diagnostico) {
+        this.diagnostico = diagnostico;
+    }
+
+    public List<Mensagem> getMensagens() {
+        return mensagens;
+    }
+
+    public void setMensagens(List<Mensagem> mensagens) {
+        this.mensagens = mensagens;
+    }
+
+    public Boolean getFinalizada() {
+        return isFinalizada;
+    }
+
+    public void setFinalizada(Boolean finalizada) {
+        isFinalizada = finalizada;
+    }
 }

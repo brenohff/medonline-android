@@ -35,9 +35,9 @@ public class MensagemAdapter extends RecyclerView.Adapter<MensagemAdapter.Mensag
     public void onBindViewHolder(@NonNull MensagemViewHolder holder, int position) {
         Mensagem mensagem = mensagemList.get(position);
         if (mensagem.isFromPaciente()) {
-            holder.mensagem_medico_nome.setText(mensagem.getConsulta().getMedico().getNome());
-        } else {
             holder.mensagem_medico_nome.setText(mensagem.getConsulta().getPaciente().getNome());
+        } else {
+            holder.mensagem_medico_nome.setText(mensagem.getConsulta().getMedico().getNome());
         }
         holder.mensagem_medico_texto.setText(mensagem.getTexto());
     }

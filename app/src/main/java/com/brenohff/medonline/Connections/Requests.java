@@ -2,6 +2,7 @@ package com.brenohff.medonline.Connections;
 
 import com.brenohff.medonline.Domain.Consulta;
 import com.brenohff.medonline.Domain.Especialidade;
+import com.brenohff.medonline.Domain.Exame;
 import com.brenohff.medonline.Domain.Medico;
 import com.brenohff.medonline.Domain.Mensagem;
 import com.brenohff.medonline.Domain.Paciente;
@@ -12,6 +13,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Query;
 
 /**
@@ -67,11 +69,32 @@ public interface Requests {
     @POST("consulta/salvar")
     Call<Consulta> salvarConsulta(@Body Consulta consulta);
 
+    @PUT("consulta/atualizar")
+    Call<Void> atualizarConsulta(@Body Consulta consulta);
+
+    @GET("consulta/buscaConsultaPorPaciente")
+    Call<List<Consulta>> buscaConsultaPorPaciente(@Query("idPaciente") Long idPaciente);
+
+    @GET("consulta/buscaConsultaPorMedico")
+    Call<List<Consulta>> buscaConsultaPorMedico(@Query("idMedico") Long idMedico);
+
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     ///// MENSAGENS
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     @POST("mensagem/salvar")
-    Call<Void> salvarMesagem(@Body Mensagem mensagem);
+    Call<List<Mensagem>> salvarMesagem(@Body Mensagem mensagem);
+
+    @GET("mensagem/buscaMensagensPorConsulta")
+    Call<List<Mensagem>> buscaMensagensPorConsulta(@Query("idConsulta") Long idConsulta);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///// MENSAGENS
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    @POST("exame/salvar")
+    Call<Void> salvarExame(@Body Exame exame);
+
+    @GET("exame/buscaExamePelaConsulta")
+    Call<List<Exame>> buscaExamePelaConsulta(@Query("idConsulta") Long idConsulta);
 
 }

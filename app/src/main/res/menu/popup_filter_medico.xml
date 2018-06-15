@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_medico_add_exame"
+        android:title="Inserir exame" />
+    <item
+        android:id="@+id/menu_medico_ver_exame"
+        android:title="Ver exames" />
+    <item
+        android:id="@+id/menu_medico_add_diagostico"
+        android:title="Inserir diagnóstico e finalizar" />
+    <!--<item-->
+        <!--android:id="@+id/menu_medico_encerrar_exame"-->
+        <!--android:title="Finalizar" />-->
+</menu>

@@ -27,8 +27,6 @@ import com.brenohff.medonline.Domain.Paciente;
 import com.brenohff.medonline.Others.ItemClickSupport;
 import com.brenohff.medonline.Others.SaveEmailOnMemory;
 import com.brenohff.medonline.R;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -37,7 +35,6 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import ua.naiksoftware.stomp.client.StompClient;
 
 
 public class ConsultaFragment extends Fragment {
@@ -56,10 +53,6 @@ public class ConsultaFragment extends Fragment {
     private RelativeLayout layout_assunto_mensagem;
     private RecyclerView rv_consultas_mensagens;
     private TextView tv_assunto_consulta;
-
-    private static final String TAG = "SOCKET";
-    private static StompClient mStompClient;
-    private Gson mGson = new GsonBuilder().create();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -145,22 +138,23 @@ public class ConsultaFragment extends Fragment {
     private void enviaMensagem() {
         Mensagem mensagem = new Mensagem();
         mensagem.setConsulta(consulta);
-        mensagem.setData(new Date());
+        mensagem.setDtMensagem(new Date());
         mensagem.setFromPaciente(SaveEmailOnMemory.loadEmail(context).getTipo_usuario().equals("paciente"));
         mensagem.setTexto(et_consulta_mensagem.getText().toString());
 
         Requests requests = Connection.createService(Requests.class);
-        Call<Void> call = requests.salvarMesagem(mensagem);
-        call.enqueue(new Callback<Void>() {
+        Call<List<Mensagem>> call = requests.salvarMesagem(mensagem);
+        call.enqueue(new Callback<List<Mensagem>>() {
             @Override
-            public void onResponse(Call<Void> call, Response<Void> response) {
+            public void onResponse(Call<List<Mensagem>> call, Response<List<Mensagem>> response) {
                 if (response.isSuccessful()) {
-                    Toast.makeText(context, "msg enviada.", Toast.LENGTH_SHORT).show();
+                    mensagemList = response.body();
+                    inflateRecyclerView();
                 }
             }
 
             @Override
-            public void onFailure(Call<Void> call, Throwable t) {
+            public void onFailure(Call<List<Mensagem>> call, Throwable t) {
 
             }
         });

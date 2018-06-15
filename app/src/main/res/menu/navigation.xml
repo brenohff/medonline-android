@@ -13,10 +13,4 @@
         android:iconTint="@color/buttons_light_blue"
         android:title="@string/title_dashboard" />
 
-    <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:iconTint="@color/buttons_light_blue"
-        android:title="@string/title_notifications" />
-
 </menu>

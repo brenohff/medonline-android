@@ -7,7 +7,7 @@ import java.util.Date;
 public class Mensagem implements Serializable {
     private Long idMensagem;
     private String texto;
-    private Date data;
+    private Date dtMensagem;
     private boolean fromPaciente;
     private Consulta consulta;
 
@@ -27,12 +27,12 @@ public class Mensagem implements Serializable {
         this.texto = texto;
     }
 
-    public Date getData() {
-        return data;
+    public Date getDtMensagem() {
+        return dtMensagem;
     }
 
-    public void setData(Date data) {
-        this.data = data;
+    public void setDtMensagem(Date dtMensagem) {
+        this.dtMensagem = dtMensagem;
     }
 
     public boolean isFromPaciente() {

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/activity_horizontal_margin"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:gravity="center_vertical"
+        android:text="Tipo de Exame"
+        android:textColor="@color/buttons_light_blue"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/exame_tipo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/drawableshape"
+        android:minHeight="50dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:text="Descrição do Exame"
+        android:textColor="@color/buttons_light_blue"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/exame_descricao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/drawableshape"
+        android:gravity="start"
+        android:minHeight="150dp" />
+
+    <Button
+        android:id="@+id/exame_salvar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:background="@color/buttons_light_blue"
+        android:text="Salvar Exame"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+</LinearLayout>

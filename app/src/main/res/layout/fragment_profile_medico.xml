@@ -51,6 +51,7 @@
             android:textSize="16sp" />
 
         <Button
+            android:id="@+id/bt_profile_minhas_consultas"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_centerInParent="true"

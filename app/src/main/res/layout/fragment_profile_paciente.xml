@@ -51,12 +51,13 @@
             android:textSize="16sp" />
 
         <Button
+            android:id="@+id/bt_profile_minhas_consultas"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_centerInParent="true"
             android:layout_marginTop="40dp"
             android:background="@color/buttons_light_blue"
-            android:text="Nova consulta"
+            android:text="Minhas consultas"
             android:textColor="@color/white" />
 
         <Button

@@ -30,7 +30,7 @@ public class ProfileFragment extends Fragment {
     private Paciente paciente;
     private Medico medico;
 
-    private Button bt_logout, bt_minhas_consultas, bt_meus_exames;
+    private Button bt_logout, bt_profile_minhas_consultas, bt_meus_exames;
     private TextView tv_profile_sexo, tv_profile_nascimento, tv_profile_nome;
 
     @Override
@@ -67,6 +67,7 @@ public class ProfileFragment extends Fragment {
         tv_profile_nome = (TextView) view.findViewById(R.id.tv_profile_nome);
         tv_profile_sexo = (TextView) view.findViewById(R.id.tv_profile_sexo);
         tv_profile_nascimento = (TextView) view.findViewById(R.id.tv_profile_nascimento);
+        bt_profile_minhas_consultas = (Button) view.findViewById(R.id.bt_profile_minhas_consultas);
         bt_logout = (Button) view.findViewById(R.id.bt_logout);
         bt_logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +76,13 @@ public class ProfileFragment extends Fragment {
                 mAuth.signOut();
                 SaveEmailOnMemory.removeEmail(context);
                 ((MainActivity) context).setFragment(2);
+            }
+        });
+
+        bt_profile_minhas_consultas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MainActivity) context).pushFragmentWithStack(new MinhasConsultasFragment(), "MinhasConsultasFragment");
             }
         });
 
@@ -93,7 +101,9 @@ public class ProfileFragment extends Fragment {
         tv_profile_nome = (TextView) view.findViewById(R.id.tv_profile_nome);
         tv_profile_sexo = (TextView) view.findViewById(R.id.tv_profile_sexo);
         tv_profile_nascimento = (TextView) view.findViewById(R.id.tv_profile_nascimento);
+        bt_profile_minhas_consultas = (Button) view.findViewById(R.id.bt_profile_minhas_consultas);
         bt_logout = (Button) view.findViewById(R.id.bt_logout);
+
         bt_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -101,6 +111,13 @@ public class ProfileFragment extends Fragment {
                 mAuth.signOut();
                 SaveEmailOnMemory.removeEmail(context);
                 ((MainActivity) context).setFragment(2);
+            }
+        });
+
+        bt_profile_minhas_consultas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MainActivity) context).pushFragmentWithStack(new MinhasConsultasFragment(), "MinhasConsultasFragment");
             }
         });
 

@@ -29,6 +29,7 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static Requests requests = Connection.createService(Requests.class);
     private BottomNavigationView navigation;
     boolean doubleBackToExitPressedOnce = false;
 
@@ -78,9 +79,6 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_dashboard:
                     changeFragment(new MedicosFragment(), "MedicosFragment");
                     return true;
-                case R.id.navigation_notifications:
-                    Toast.makeText(MainActivity.this, "Consultas", Toast.LENGTH_SHORT).show();
-                    return true;
             }
             return false;
         }
@@ -120,9 +118,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 2:
                 navigation.setSelectedItemId(R.id.navigation_dashboard);
-                break;
-            case 3:
-                navigation.setSelectedItemId(R.id.navigation_notifications);
                 break;
         }
     }
