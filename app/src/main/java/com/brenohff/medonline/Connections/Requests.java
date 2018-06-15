@@ -1,6 +1,7 @@
 package com.brenohff.medonline.Connections;
 
 import com.brenohff.medonline.Domain.Consulta;
+import com.brenohff.medonline.Domain.Diagnostico;
 import com.brenohff.medonline.Domain.Especialidade;
 import com.brenohff.medonline.Domain.Exame;
 import com.brenohff.medonline.Domain.Medico;
@@ -89,7 +90,7 @@ public interface Requests {
     Call<List<Mensagem>> buscaMensagensPorConsulta(@Query("idConsulta") Long idConsulta);
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///// MENSAGENS
+    ///// EXAMES
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     @POST("exame/salvar")
     Call<Void> salvarExame(@Body Exame exame);
@@ -97,4 +98,10 @@ public interface Requests {
     @GET("exame/buscaExamePelaConsulta")
     Call<List<Exame>> buscaExamePelaConsulta(@Query("idConsulta") Long idConsulta);
 
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///// DIAGNOSTICO
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    @POST("diagnostico/salvar")
+    Call<Void> salvarDiagnostico(@Body Diagnostico diagnostico);
 }

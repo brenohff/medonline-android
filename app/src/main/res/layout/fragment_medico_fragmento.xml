@@ -29,12 +29,28 @@
             android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/medico_fragment_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            android:textSize="18sp" />
+
+        <TextView
             android:id="@+id/medico_fragment_especialidade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:gravity="center_horizontal"
             android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/medico_fragment_especialidade_detalhe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:gravity="center_horizontal"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/bt_iniciar_consulta"

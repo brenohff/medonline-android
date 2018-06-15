@@ -21,6 +21,7 @@ import com.brenohff.medonline.Activities.MainActivity;
 import com.brenohff.medonline.Adapters.MensagemAdapter;
 import com.brenohff.medonline.Connections.Connection;
 import com.brenohff.medonline.Connections.Requests;
+import com.brenohff.medonline.DiagnosticoFragment;
 import com.brenohff.medonline.Domain.Consulta;
 import com.brenohff.medonline.Domain.Mensagem;
 import com.brenohff.medonline.Others.ItemClickSupport;
@@ -196,6 +197,11 @@ public class Consulta2Fragment extends Fragment {
                             return true;
 
                         case R.id.menu_medico_add_diagostico:
+                            DiagnosticoFragment diagnosticoFragment = new DiagnosticoFragment();
+                            Bundle bundle3 = new Bundle();
+                            bundle3.putSerializable("consulta", consulta);
+                            diagnosticoFragment.setArguments(bundle3);
+                            ((MainActivity) context).pushFragmentWithStack(diagnosticoFragment, "DiagnosticoFragment");
                             return true;
 
                         default:

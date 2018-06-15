@@ -25,7 +25,7 @@ public class MedicoFragmento extends Fragment {
     private Context context;
     private Medico medico;
 
-    private TextView medico_fragment_nome, medico_fragment_especialidade;
+    private TextView medico_fragment_nome, medico_fragment_especialidade, medico_fragment_especialidade_detalhe, medico_fragment_email;
     private CircleImageView medico_imagem;
     private Button bt_iniciar_consulta;
 
@@ -53,6 +53,8 @@ public class MedicoFragmento extends Fragment {
         bt_iniciar_consulta = (Button) view.findViewById(R.id.bt_iniciar_consulta);
         medico_fragment_especialidade = (TextView) view.findViewById(R.id.medico_fragment_especialidade);
         medico_fragment_nome = (TextView) view.findViewById(R.id.medico_fragment_nome);
+        medico_fragment_especialidade_detalhe = (TextView) view.findViewById(R.id.medico_fragment_especialidade_detalhe);
+        medico_fragment_email = (TextView) view.findViewById(R.id.medico_fragment_email);
 
         bt_iniciar_consulta.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,6 +76,8 @@ public class MedicoFragmento extends Fragment {
 
         medico_fragment_especialidade.setText(medico.getEspecialidade().getEspecialidade());
         medico_fragment_nome.setText(medico.getNome());
+        medico_fragment_email.setText(medico.getEmail());
+        medico_fragment_especialidade_detalhe.setText(medico.getEspecialidade().getDescricao());
     }
 
 }

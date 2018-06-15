@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/activity_horizontal_margin"
+    android:orientation="vertical"
+    tools:context=".DiagnosticoFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:gravity="center_vertical"
+        android:text="Resultado "
+        android:textColor="@color/buttons_light_blue"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/diag_resultado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/drawableshape"
+        android:minHeight="50dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center_vertical"
+        android:text="Observações da consulta"
+        android:textColor="@color/buttons_light_blue"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/diag_obs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/drawableshape"
+        android:gravity="start"
+        android:minHeight="100dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center_vertical"
+        android:text="Receitas"
+        android:textColor="@color/buttons_light_blue"
+        android:textSize="18sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="10dp">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/diag_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/drawableshape"
+            android:minHeight="150dp" />
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/diag_add_receita"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/buttons_light_blue"
+        android:drawableEnd="@drawable/ic_arrow_right"
+        android:drawablePadding="-20dp"
+        android:text="Adicionar Receita"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/diag_finalizar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/buttons_light_blue"
+        android:text="Finalizar Consulta"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+</LinearLayout>
