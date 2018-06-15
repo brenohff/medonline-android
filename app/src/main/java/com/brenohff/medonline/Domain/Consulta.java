@@ -14,26 +14,27 @@ public class Consulta implements Serializable {
     private String assunto;
     private Medico medico;
     private Paciente paciente;
-    private Set<Exame> exame;
+    private List<Exame> exame;
     private Set<Diagnostico> diagnostico;
     private List<Mensagem> mensagens;
     private Boolean isFinalizada;
 
 
     //GETTERS AND SETTERS
-    public Long getId() {
+
+    public Long getIdConsulta() {
         return idConsulta;
     }
 
-    public void setId(Long idConsulta) {
+    public void setIdConsulta(Long idConsulta) {
         this.idConsulta = idConsulta;
     }
 
-    public Date getDt_consulta() {
+    public Date getDtConsulta() {
         return dtConsulta;
     }
 
-    public void setDt_consulta(Date dtConsulta) {
+    public void setDtConsulta(Date dtConsulta) {
         this.dtConsulta = dtConsulta;
     }
 
@@ -61,28 +62,12 @@ public class Consulta implements Serializable {
         this.paciente = paciente;
     }
 
-    public Set<Exame> getExame() {
+    public List<Exame> getExame() {
         return exame;
     }
 
-    public void setExame(Set<Exame> exame) {
+    public void setExame(List<Exame> exame) {
         this.exame = exame;
-    }
-
-    public Long getIdConsulta() {
-        return idConsulta;
-    }
-
-    public void setIdConsulta(Long idConsulta) {
-        this.idConsulta = idConsulta;
-    }
-
-    public Date getDtConsulta() {
-        return dtConsulta;
-    }
-
-    public void setDtConsulta(Date dtConsulta) {
-        this.dtConsulta = dtConsulta;
     }
 
     public Set<Diagnostico> getDiagnostico() {

@@ -108,7 +108,7 @@ public class ConsultaFragment extends Fragment {
 
     private void salvarConsulta() {
         consulta.setAssunto(et_assunto_consulta.getText().toString());
-        consulta.setDt_consulta(new Date());
+        consulta.setDtConsulta(new Date());
         consulta.setMedico(medico);
         consulta.setPaciente(paciente);
 

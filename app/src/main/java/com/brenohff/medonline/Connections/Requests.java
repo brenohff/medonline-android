@@ -104,4 +104,7 @@ public interface Requests {
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     @POST("diagnostico/salvar")
     Call<Void> salvarDiagnostico(@Body Diagnostico diagnostico);
+
+    @GET("diagnostico/buscaDiagnosticoPorConsulta")
+    Call<Diagnostico> buscaDiagnosticoPorConsulta(@Query("idConsulta") Long idConsulta);
 }

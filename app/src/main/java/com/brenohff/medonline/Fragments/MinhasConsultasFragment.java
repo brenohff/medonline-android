@@ -16,6 +16,7 @@ import com.brenohff.medonline.Adapters.ConsultaAdapter;
 import com.brenohff.medonline.Connections.Connection;
 import com.brenohff.medonline.Connections.Requests;
 import com.brenohff.medonline.Domain.Consulta;
+import com.brenohff.medonline.Domain.Diagnostico;
 import com.brenohff.medonline.Memory.MainData;
 import com.brenohff.medonline.Others.ItemClickSupport;
 import com.brenohff.medonline.Others.SaveEmailOnMemory;
@@ -113,14 +114,40 @@ public class MinhasConsultasFragment extends Fragment {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
                 Consulta c = consultaList.get(position);
-                Consulta2Fragment consulta2Fragment = new Consulta2Fragment();
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("consulta", c);
-                consulta2Fragment.setArguments(bundle);
-                ((MainActivity) context).pushFragmentWithStack(consulta2Fragment, "Consulta2Fragment");
+                verificaDiag(c);
+
             }
         });
         recyclerView.setAdapter(new ConsultaAdapter(consultaList));
+    }
+
+    private void verificaDiag(Consulta consulta) {
+        Call<Diagnostico> call = MainActivity.requests.buscaDiagnosticoPorConsulta(consulta.getIdConsulta());
+        call.enqueue(new Callback<Diagnostico>() {
+            @Override
+            public void onResponse(Call<Diagnostico> call, Response<Diagnostico> response) {
+                if (response.isSuccessful()) {
+                    Diagnostico diagnostico = response.body();
+
+                    ResumoFragment resumoFragment = new ResumoFragment();
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("diag", diagnostico);
+                    resumoFragment.setArguments(bundle);
+                    ((MainActivity) context).pushFragmentWithStack(resumoFragment, "ResumoFragment");
+                } else {
+                    Consulta2Fragment consulta2Fragment = new Consulta2Fragment();
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("consulta", consulta);
+                    consulta2Fragment.setArguments(bundle);
+                    ((MainActivity) context).pushFragmentWithStack(consulta2Fragment, "Consulta2Fragment");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Diagnostico> call, Throwable t) {
+                Toast.makeText(context, "Falha ao buscar consulta", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 }

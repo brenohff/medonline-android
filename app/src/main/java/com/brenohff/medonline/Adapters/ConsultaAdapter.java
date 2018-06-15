@@ -46,7 +46,7 @@ public class ConsultaAdapter extends RecyclerView.Adapter<ConsultaAdapter.Consul
 
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-        holder.tv_data.setText(simpleDateFormat.format(c.getDt_consulta()));
+        holder.tv_data.setText(simpleDateFormat.format(c.getDtConsulta()));
     }
 
     @Override
